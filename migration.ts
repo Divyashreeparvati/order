@@ -9,8 +9,8 @@ async function runMigration() {
     const pool = new Pool({  user: 'order_db',
         host: 'localhost',
         database: 'order_service',
-        password: '123456',
-        port: 5432});
+        password: '78910',
+        port: 5434});
     const db = drizzle(pool);
     await migrate(db, { migrationsFolder: "./src/db/migrations" });
     console.log("migration was successful!");
