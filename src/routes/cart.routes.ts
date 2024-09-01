@@ -6,7 +6,7 @@ import { ValidateRequest } from '../utils/validator'
 
 
 const router=express()
-const repo=repository.CartRepositor
+const repo=repository.CartRepository
 
 router.post(
     "/cart",
@@ -23,7 +23,7 @@ router.post(
   
         const response = await service.CreateCart(
           req.body as CartRequestInput,
-          repo
+          repo 
         );
         return res.status(200).json(response);
       } catch (error) {
@@ -33,7 +33,7 @@ router.post(
   );
 
 router.get('/cart',async(req:Request,res:Response,next:NextFunction)=>{
-    const response=await service.GetCart(req.body,repo)
+    const response=await service.GetCart(req.body.customerId,repo)
     return res.status(200).json(response)
 })
 
